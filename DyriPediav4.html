@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DYRIPEDIA | SUPREME V5</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+    /* Promo Banner 16:9 Style */
+.promo-section {
+    padding: 20px;
+    margin-bottom: 80px; /* Memberi ruang agar tidak tertutup navigasi jika ada */
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #64748b;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.promo-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.promo-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.promo-card {
+    min-width: 100%; /* Menjamin satu card selebar layar */
+    aspect-ratio: 16 / 9; /* Rasio sesuai permintaan */
+    background: #e2e8f0;
+    border-radius: 25px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.promo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar gambar tidak gepeng */
+    display: block;
+}
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Orbitron:wght@900&display=swap');
+        
+        :root { --royal: #0052ff; --bg: #f8fbff; --dark: #0f172a; --scs: #10b981; --err: #ff3b3b; --white: #ffffff; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background: var(--bg); color: var(--dark); overflow: hidden; }
+
+        /* Typography Animasi DYRIPEDIA */
+        .brand-anim { font-family: 'Orbitron', sans-serif; font-size: 28px; background: linear-gradient(90deg, #fff, #60a5fa, #fff); background-size: 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shine 3s infinite linear; }
+        @keyframes shine { to { background-position: 200%; } }
+
+        /* Header Premium */
+        .header { background: var(--royal); height: 260px; padding: 40px 25px; border-radius: 0 0 60px 60px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+
+        /* Banner Slider Style */
+        .banner-container { display: flex; overflow-x: auto; gap: 15px; padding: 0 20px; margin-top: -40px; scrollbar-width: none; position: relative; z-index: 20; }
+        .banner-container::-webkit-scrollbar { display: none; }
+        .banner-item { min-width: 85%; height: 150px; border-radius: 30px; background: linear-gradient(45deg, #1e293b, #334155); padding: 20px; color: white; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .banner-item i { position: absolute; right: -10px; bottom: -10px; font-size: 80px; opacity: 0.1; transform: rotate(-20deg); }
+
+        /* Wallet Section */
+        .wallet { background: var(--white); margin: 20px; border-radius: 35px; padding: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .bal-val { font-size: 32px; font-weight: 800; color: var(--royal); margin-bottom: 20px; }
+
+        /* Services Grid */
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 20px; }
+        .item { text-align: center; font-size: 10px; font-weight: 800; color: #64748b; }
+        .icon-box { width: 60px; height: 60px; background: white; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 22px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+
+        /* Modern Bottom Sheet */
+        .sheet { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 3000; display: none; align-items: flex-end; backdrop-filter: blur(8px); }
+        .sheet-body { background: white; width: 100%; border-radius: 45px 45px 0 0; padding: 30px 20px; max-height: 85vh; overflow-y: auto; animation: slideUp 0.4s cubic-bezier(0, 1, 0.5, 1); }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+        /* Struk & Alert UI (No more Browser Alert!) */
+        .ui-alert { background: white; border-radius: 35px; padding: 30px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .ui-alert i { font-size: 60px; margin-bottom: 20px; }
+        .btn-close { width: 100%; padding: 18px; border-radius: 20px; border: none; font-weight: 800; margin-top: 20px; }
+
+        .list-pkg { background: #f8fafc; padding: 18px; border-radius: 22px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #f1f5f9; }
+    </style>
+</head>
+<body>
+
+    <div id="main-ui">
+        <div class="header">
+            <div class="brand-anim animate__animated animate__fadeInDown">DIYRIPEDIA</div>
+            <p style="color: rgba(255,255,255,0.7); font-weight: 600; font-size: 12px; margin-top: 5px;">High-Speed SMM Automatic System</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px; color: white;">
+                <div>
+                    <p style="font-size: 11px; opacity: 0.8; font-weight: 800;">TOTAL SALDO</p>
+                    <h1 id="u-bal" style="font-size: 30px; font-weight: 800;">Rp 0</h1>
+                </div>
+                <button onclick="app.openDepo()" style="background: rgba(255,255,255,0.2); border: none; padding: 12px 20px; border-radius: 15px; color: white; font-weight: 800; font-size: 12px;">TOP UP <i class="fa fa-plus-circle"></i></button>
+            </div>
+        </div>
+
+        <div class="banner-container">
+            <div class="banner-item" style="background: linear-gradient(45deg, #0052ff, #60a5fa);">
+                <h3 style="font-weight: 800;">PROMO TIKTOK</h3>
+                <p style="font-size: 11px; opacity: 0.9;">Tiktok Repost cuma 300 perak!</p>
+                <i class="fa-brands fa-tiktok"></i>
+            </div>
+            <div class="banner-item" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);">
+                <h3 style="font-weight: 800;">INSTAGRAM VIP</h3>
+                <p style="font-size: 11px; opacity: 0.9;">Followers HQ Drop-Garansi 30 Hari.</p>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="banner-item" style="background: linear-gradient(45deg, #1d976c, #93f9b9); color: #004d40;">
+                <h3 style="font-weight: 800;">WA GATEWAY</h3>
+                <p style="font-size: 11px; opacity: 0.8;">Member grup aktif & tertarget.</p>
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="item" onclick="app.openPop('Instagram')"><div class="icon-box"><i class="fa-brands fa-instagram" style="color:#e1306c"></i></div><span>Instagram</span></div>
+            <div class="item" onclick="app.openPop('TikTok')"><div class="icon-box"><i class="fa-brands fa-tiktok"></i></div><span>TikTok</span></div>
+            <div class="item" onclick="app.openPop('YouTube')"><div class="icon-box"><i class="fa-brands fa-youtube" style="color:#ff0000"></i></div><span>YouTube</span></div>
+            <div class="item" onclick="app.openPop('WhatsApp')"><div class="icon-box"><i class="fa-brands fa-whatsapp" style="color:#25d366"></i></div><span>WhatsApp</span></div>
+            <div class="item" onclick="app.openPop('Facebook')"><div class="icon-box"><i class="fa-brands fa-facebook" style="color:#1877f2"></i></div><span>Facebook</span></div>
+            <div class="item" onclick="app.openPop('Twitter')"><div class="icon-box"><i class="fa-brands fa-x-twitter"></i></div><span>Twitter</span></div>
+            <div class="item" onclick="app.openPop('Telegram')"><div class="icon-box"><i class="fa-brands fa-telegram" style="color:#0088cc"></i></div><span>Telegram</span></div>
+            <div class="item" onclick="app.openPop('Threads')"><div class="icon-box"><i class="fa-solid fa-at"></i></div><span>Threads</span></div>
+        </div>
+    </div>
+<div class="promo-section">
+    <p class="section-title">Promo Spesial Hari Ini</p>
+    <div class="promo-slider">
+        <div class="promo-card">
+            <img src="https://i.ibb.co.com/CKvKpPJK/bg1.png" alt="Promo 1" onerror="this.src='https://via.placeholder.com/1600x900?text=Banner+1'">
+        </div>
+        
+        <div class="promo-card">
+            <img src="https://i.ibb.co.com/q3p4FTcD/bg2.png" alt="Promo 2" onerror="this.src='https://via.placeholder.com/1600x900?text=Banner+2'">
+        </div>
+        
+        <div class="promo-card">
+            <img src="https://i.ibb.co.com/pjtZXFzD/bg3.png" alt="Promo 3" onerror="this.src='https://via.placeholder.com/1600x900?text=Banner+3'">
+        </div>
+    </div>
+</div>
+    <div id="sheet" class="sheet" onclick="if(event.target==this) app.closePop()">
+        <div id="sheet-content" class="sheet-body"></div>
+    </div>
+
+    <div id="overlay" style="position:fixed; inset:0; background:var(--bg); z-index:5000; display:none; padding:40px 25px; overflow-y:auto;"></div>
+
+    <script>
+        const app = {
+            bal: parseInt(localStorage.getItem('dy_bal_v5')) || 0,
+            hist: JSON.parse(localStorage.getItem('dy_hist_v5')) || [],
+
+            // Database Fitur per Sosmed
+            features: {
+                'Instagram': ['Followers IG', 'Likes IG', 'Views IG', 'Comment IG'],
+                'TikTok': ['Followers TikTok', 'Likes TikTok', 'Views TikTok', 'Repost TikTok', 'Share TikTok'],
+                'YouTube': ['Subscribers YouTube', 'Views YouTube', 'Likes YouTube', 'YouTube Remix', 'Watch Time'],
+                'WhatsApp': ['Member Grup WA', 'Pengikut Saluran WA'],
+                'Facebook': ['Page Followers', 'Post Likes', 'Reels Views']
+            },
+
+            init: function() {
+                this.updateUI();
+            },
+
+            updateUI: function() {
+                document.getElementById('u-bal').innerText = "Rp " + this.bal.toLocaleString();
+                localStorage.setItem('dy_bal_v5', this.bal);
+            },
+
+            openPop: function(cat) {
+                let h = `<h2 style="font-weight:800; margin-bottom:20px;">${cat} Services</h2>`;
+                const list = this.features[cat] || ['Followers', 'Likes', 'Views'];
+                list.forEach(f => {
+                    h += `<div class="list-pkg" onclick="app.openPackages('${f}')"><b>${f}</b><i class="fa fa-chevron-right" style="color:var(--royal)"></i></div>`;
+                });
+                document.getElementById('sheet-content').innerHTML = h;
+                document.getElementById('sheet').style.display = 'flex';
+            },
+
+            openPackages: function(service) {
+                let h = `<h2 style="font-weight:800; margin-bottom:20px;">Pilih Paket</h2>`;
+                
+                // LOGIKA HARGA SPESIFIK (Instruksi Bapak)
+                let isView = service.toLowerCase().includes('view');
+                let isLikesOrRepost = service.toLowerCase().match(/like|repost|share|remix|comment/);
+                
+                for(let i=1; i<=20; i++) {
+                    let name, price;
+                    if(isView) {
+                        let qty = i * 100000; // Mulai dari 100rb view
+                        price = (i * 308) + Math.floor(Math.random()*50); // Sekitar 308 perak
+                        name = `${qty.toLocaleString()} ${service}`;
+                    } else if(isLikesOrRepost) {
+                        let qty = i * 1000;
+                        price = (i * 154) + (i * 20); // Sekitar 154 perak + penambahan %
+                        name = `${qty.toLocaleString()} ${service}`;
+                    } else {
+                        let qty = i * 100;
+                        price = i * 1200;
+                        name = `${qty.toLocaleString()} ${service}`;
+                    }
+                    
+                    h += `<div class="list-pkg" onclick="app.checkout('${name}', ${price})">
+                            <div><b>${name}</b><p style="font-size:10px; color:var(--scs); font-weight:800;">● Server Real ID</p></div>
+                            <b style="color:var(--royal)">Rp ${price.toLocaleString()}</b>
+                          </div>`;
+                }
+                document.getElementById('sheet-content').innerHTML = h;
+            },
+
+            checkout: function(name, price) {
+                this.closePop();
+                this.showInput(name, price);
+            },
+
+            showInput: function(name, price) {
+                let h = `
+                <div class="animate__animated animate__fadeIn">
+                    <h2 style="font-weight:800; margin-bottom:10px;">Konfirmasi Pesanan</h2>
+                    <div style="background:white; padding:25px; border-radius:30px; margin-bottom:25px;">
+                        <p style="font-size:12px; color:gray;">Layanan Terpilih:</p>
+                        <b style="font-size:18px; color:var(--royal);">${name}</b>
+                        <p style="margin-top:10px; font-weight:800;">Harga: Rp ${price.toLocaleString()}</p>
+                    </div>
+                    <label style="font-size:11px; font-weight:800; color:gray;">URL TARGET / USERNAME</label>
+                    <input type="text" id="target" style="width:100%; padding:20px; border-radius:20px; border:2px solid #eee; margin-top:10px; outline:none; font-weight:700;" placeholder="https://...">
+                    <button onclick="app.processBuy('${name}', ${price})" class="btn-close" style="background:var(--royal); color:white;">BELI SEKARANG</button>
+                    <button onclick="app.hideOv()" class="btn-close" style="background:transparent; color:gray;">BATALKAN</button>
+                </div>`;
+                this.showOv(h);
+            },
+
+            processBuy: function(name, price) {
+                const target = document.getElementById('target').value;
+                if(!target) return this.errorAlert("Input Kosong!", "Harap masukkan URL target yang valid.");
+                if(this.bal < price) return this.errorAlert("Saldo Kurang!", "Saldo anda tidak mencukupi untuk layanan ini.");
+
+                this.bal -= price;
+                this.updateUI();
+                this.showSuccess(name, price, target);
+            },
+
+            openDepo: function() {
+                let h = `
+                <h2 style="font-weight:800; margin-bottom:20px;">Top Up Saldo</h2>
+                <input type="number" id="amt-depo" style="width:100%; padding:20px; border-radius:20px; border:2px solid #eee; outline:none; font-weight:800;" placeholder="Masukkan Nominal">
+                <button onclick="app.confirmDepo()" class="btn-close" style="background:var(--royal); color:white;">LANJUTKAN</button>
+                `;
+                document.getElementById('sheet-content').innerHTML = h;
+                document.getElementById('sheet').style.display = 'flex';
+            },
+
+            confirmDepo: function() {
+                const amt = document.getElementById('amt-depo').value;
+                if(!amt || amt < 1000) return this.errorAlert("Nominal Salah!", "Minimal top up adalah Rp 1.000");
+                this.closePop();
+                let h = `
+                <div style="text-align:center;" class="animate__animated animate__zoomIn">
+                    <div class="ui-alert">
+                        <p style="font-weight:800; color:gray; font-size:12px;">PEMBAYARAN QRIS</p>
+                        <h1 style="color:var(--royal); margin:10px 0;">Rp ${parseInt(amt).toLocaleString()}</h1>
+                        <img src="https://i.ibb.co.com/NPLN2XQ/IMG-20260104-021600.jpg" style="width:250px; border:10px solid #f8fafc; border-radius:30px; margin:20px 0;">
+                        <button onclick="app.verifDepo(${amt})" class="btn-close" style="background:var(--royal); color:white;">SAYA SUDAH BAYAR</button>
+                    </div>
+                </div>`;
+                this.showOv(h);
+            },
+
+            verifDepo: function(amt) {
+                this.showOv(`<div style="text-align:center; padding-top:100px;"><div class="brand-anim" style="font-size:40px;">CHECKING...</div><p>Sedang memverifikasi mutasi bank.</p></div>`);
+                setTimeout(() => {
+                    this.bal += parseInt(amt);
+                    this.updateUI();
+                    this.showSuccess("Top Up Saldo", amt, "E-Wallet");
+                }, 5000);
+            },
+
+            showSuccess: function(name, price, target) {
+                let h = `
+                <div class="ui-alert animate__animated animate__bounceIn">
+                    <div style="width:80px; height:80px; background:var(--scs); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-size:40px;"><i class="fa fa-check"></i></div>
+                    <h2 style="font-weight:800;">TRANSAKSI BERHASIL</h2>
+                    <div style="text-align:left; background:#f8fafc; padding:20px; border-radius:20px; margin-top:20px; font-size:13px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>Layanan</span><b>${name}</b></div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>Target</span><b style="color:var(--royal)">${target}</b></div>
+                        <div style="display:flex; justify-content:space-between; border-top:1px dashed #ddd; pt:10px; margin-top:10px;"><span>Total</span><b style="font-size:16px;">Rp ${price.toLocaleString()}</b></div>
+                    </div>
+                    <button onclick="app.hideOv()" class="btn-close" style="background:var(--dark); color:white;">KEMBALI KE HOME</button>
+                </div>`;
+                this.showOv(h);
+            },
+
+            errorAlert: function(title, msg) {
+                let h = `
+                <div class="ui-alert animate__animated animate__headShake" style="border-top: 10px solid var(--err);">
+                    <i class="fa fa-circle-xmark" style="color:var(--err)"></i>
+                    <h2 style="font-weight:800;">${title}</h2>
+                    <p style="color:gray; margin-top:10px;">${msg}</p>
+                    <button onclick="app.hideOv()" class="btn-close" style="background:var(--err); color:white;">MENGERTI</button>
+                </div>`;
+                this.showOv(h);
+            },
+
+            closePop: function() { document.getElementById('sheet').style.display = 'none'; },
+            showOv: function(h) { const o = document.getElementById('overlay'); o.innerHTML = h; o.style.display = 'block'; },
+            hideOv: function() { document.getElementById('overlay').style.display = 'none'; }
+        };
+
+        window.onload = () => app.init();
+    </script>
+</body>
+</html>
